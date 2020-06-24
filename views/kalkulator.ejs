@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- <script src="jquery-3.4.1.min.js"></script> -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="/js/kalkulator.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/style.css" type="text/css"> -->
+    <title>Kalkulator</title>
+</head>
+
+<body>
+    <%- include('partials/navbar')%>
+
+        <div class="bmr-uvod">
+            <center>
+                <h3>Ritam bazalnog metabolizma</h3>
+            </center>
+
+            <p>
+                BMR (ritam bazalnog metabolizma) je broj koji pokazuje iznos minimalne energije (kalorija) koja je potrebna da bi telo obavljalo osnovne funkcije: da bi se disalo, da bi se održavala cirkulacija krvi i temperatura tela. Za grubo izračunavanje visine BMR
+                potrebna su četiri podatka: pol, godine, visina i težina.
+            </p>
+        </div>
+
+        <div class="pol">
+            <div>
+                <h2>Izaberite vaš pol:</h2>
+            </div>
+            <div class="btnPol">
+                <div><button class="polM">Muško</button></div>
+                <div><button class="polZ">Žensko</button></div>
+            </div>
+        </div>
+
+        <div class="bmr">
+            <div class="muški-bmr">
+                <img src="/images/musko.png" alt="muško">
+                <form id="muškiBMR" action="" method="POST" class="muška-forma" oninput="x.value=(10*parseFloat(muškoTežina.value))+(6.25*parseFloat(muškoVisina.value))-(5*parseFloat(
+                muškoGodine.value))+5">
+                    <h4>Za muškarce</h4>
+                    <p>
+                        <label for="muškoTežina">Težina (kg)</label>
+                        <input id="muškoTežina" name="muškoTežina" type="number" placeholder="primer: 78" required/>
+                    </p>
+                    <p>
+                        <label for="muškoVisina">Visina (cm)</label>
+                        <input id="muškoVisina" name="muškoVisina" type="number" placeholder="primer: 182" required />
+                    </p>
+                    <p>
+                        <label for="muškoGodine">Godine (godine)</label>
+                        <input id="muškoGodine" name="muškoGodine" type="number" placeholder="primer: 23" required />
+                    </p>
+                    <p>
+                        <button type="button" class="izračunaj" id="potvrdiM">Izračunaj BMR</button>
+                        <!-- <input type="submit" id="potvrdiM" value="Izračinaj BMR" name="izračunaj" class="izračunaj" /> -->ili
+                        <input type="reset" value="Resetuj" name="resetuj" />
+                    </p>
+                    <p>
+                        <label for="rezultat">Rezultat</label>
+                        <input id="rezultatM" name="rezultat" class="rezultat" readonly/>
+                    </p>
+
+                </form>
+            </div>
+            <div class="ženski-bmr">
+
+                <form id="ženskiBMR" action="" method="POST" class="ženska-forma">
+                    <h4>Za devojke</h4>
+                    <p>
+                        <label for="ženskoTežina">Težina (kg)</label>
+                        <input id="ženskoTežina" name="ženskoTežina" type="number" placeholder="primer: 62" />
+                    </p>
+                    <p>
+                        <label for="ženskoVisina">Visina (cm)</label>
+                        <input id="ženskoVisina" name="ženskoVisina" type="number" placeholder="primer: 165" />
+                    </p>
+                    <p>
+                        <label for="ženskoGodine">Godine (godine)</label>
+                        <input id="ženskoGodine" name="ženskoGodine" type="number" placeholder="primer: 20" />
+                    </p>
+                    <p>
+                        <button type="button" class="izračunaj" id="potvrdiZ">Izračunaj BMR</button>
+                        <!-- <input type="submit" value="Izračinaj BMR" id="potvrdiZ" name="izračunaj" /> ili -->
+                        <input type="reset" value="Resetuj" name="resetuj" />
+                    </p>
+                    <p>
+                        <label for="result">Rezultat</label>
+                        <input id="rezultatZ" name="rezultat" class="rezultat" readonly/>
+                    </p>
+
+                </form>
+                <img src="/images/zena.png" alt="žensko">
+            </div>
+        </div>
+
+
+        <!-- BMI Kalkulator -->
+        <div class="bmi">
+            <div class="bmi-uvod">
+                <center>
+                    <h3>BMI kalkulator</h3>
+                </center>
+                <p>
+                    Indeks telesne mase je metoda izračuna uhranjenosti. BMI se izračunava vrlo jednostavno, a temelji se na odnosu telesne težine i visine osobe.
+                </p>
+            </div>
+            <img src="/images/bmi.png" alt="bmi">
+            <div class="forma-div">
+
+                <h2>Unesite vaše podatke da bi ste izračunali vašu telesnu masu!</h2>
+
+                <form action="" class="bmi-forma">
+                    <p>
+                        <label for="">Visina (cm)</label>
+                        <input type="number" name="bmi-visina" id="bmi-visina">
+                    </p>
+                    <p>
+                        <label for="">Težina (kg)</label>
+                        <input type="number" name="bmi-težina" id="bmi-težina">
+                    </p>
+                    <center>
+                        <button type="button" id="potvrdiBmi">Izračunaj BMI</button>
+                    </center>
+
+                    <p>
+                        <label for="result">Rezultat</label>
+                        <input id="rezultatBmi" name="rezultat" class="rezultat" readonly/>
+                    </p>
+                </form>
+            </div>
+
+            <h1 id="rezultat-text"></h1>
+
+        </div>
+
+        <%- include('partials/fotter.ejs') %>
+
+</body>
+
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Namirnice</title>
+</head>
+
+<body>
+    <%- include('partials/navbar') %>
+        <script src="/js/search.js"></script>
+        <!-- 
+      <form action="/namirnice" method="POST">
+            <p>
+                <label for="">Naziv namirnice:</label>
+                <input type="text" name="naziv_namirnice" id="bmi-visina">
+            </p>
+            <p>
+                <label for="">Kalorije na 100g: </label>
+                <input type="number" name="kalorije" id="bmi-visina">
+            </p>
+            <p>
+                <label for="">Proteini u gramima:</label>
+                <input type="number" name="proteini" id="bmi-visina">
+            </p>
+            <p>
+                <label for="">Ugljeni hidrati u gramima:</label>
+                <input type="number" name="ugljeni_hidrati" id="bmi-visina">
+            </p>
+            <p>
+                <label for="">Masti u gramima:</label>
+                <input type="number" name="masti" id="bmi-visina">
+            </p>
+            <p>
+                <input type="submit" name="potvrdi_namirnice" id="bmi-visina">
+            </p>
+        </form> -->
+        <div class="namirnice-uvod">
+            <h1>Namirnice</h1>
+            <h3>Tabela sa proizvodima i njenim prehrambrenim vrednostima. Ovde možete pretražiti proizvode po imenu ili dodati svoje proizvode. </h3>
+        </div>
+
+        <div class="namirnice-unos-forma">
+            <h2>Unesite novi proizvod</h2>
+            <form action="/namirnice" method="POST">
+                <div class="polja-unos">
+                    <input type="text" class="polje-unos" name="naziv_namirnice" placeholder="Naziv proizvoda" />
+                    <input type="number" class="polje-unos" name="kalorije" placeholder="Kalorije" />
+                    <input type="number" class="polje-unos" name="proteini" placeholder="Proteini" />
+                    <input type="number" class="polje-unos" name="ugljeni_hidrati" placeholder="Ugljeni hidrati" />
+                    <input type="number" class="polje-unos" name="masti" placeholder="Masti" />
+                </div>
+                <input type="submit" name="potvrdi_namirnice" value="Prosledi" />
+            </form>
+        </div>
+
+
+
+        <div class="namirnice-tabela">
+
+            <h2>Tabela</h2>
+            <br>
+
+            <!-- Search bar za tabelu  -->
+            <input type="text" id="search-namirnice" class="search-namirnice" placeholder="Pretražite namirnice...">
+            <br>
+            <br>
+
+            <table>
+                <thead>
+
+                    <tr>
+                        <th>Naziv namirnice</th>
+                        <th>Kalorije na 100g</th>
+                        <th>Proteini</th>
+                        <th>Ugljeni hidrati</th>
+                        <th>Masti</th>
+                    </tr>
+
+
+
+                    <thead>
+                        <tbody id="tabela-namirnice">
+
+                            <% data.forEach(function(namirnice){  %>
+
+                                <tr>
+                                    <td>
+                                        <%= namirnice.naziv_namirnice %>
+                                    </td>
+                                    <td>
+                                        <%= namirnice.kalorije %> cal
+                                    </td>
+                                    <td>
+                                        <%= namirnice.proteini %>g
+                                    </td>
+                                    <td>
+                                        <%= namirnice.ugljeni_hidrati %>g
+                                    </td>
+                                    <td>
+                                        <%= namirnice.masti %>g
+                                    </td>
+
+                                </tr>
+                                <%})%>
+
+                        </tbody>
+                        <table/>
+        </div>
+
+
+        <br>
+        <br>
+
+        <%- include('partials/fotter.ejs') %>
+</body>
+
+</html>

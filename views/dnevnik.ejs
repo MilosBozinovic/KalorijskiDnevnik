@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Kalorijski dnevnik</title>
+    <script src="jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500&display=swap" rel="stylesheet" />
+    <title>Dnevnik</title>
+</head>
+
+<body>
+    <%- include('partials/navbar') %>
+        <div style="text-align: center; padding: 20px;">
+            <h1>Dnevnik kalorija</h1>
+        </div>
+
+        <div class="container" id="DnevnikGlavno">
+            <div class="card">
+                <div class="card-content">
+
+                    <p style="font-size: 20px;">Dodaj obrok/Namirnicu</p>
+
+                    <div class="col">
+                        <div class="row">
+                            <div class="dodajObrok">
+                                <div class="obrok">
+                                    <label for="">Obrok</label><br>
+                                    <input type="text" placeholder="Add Item" id="meal-name">
+                                </div>
+                                <div class="kalorije">
+                                    <label for="">Kalorije</label><br>
+                                    <input type="number" placeholder="Add Calorie" id="calorie-name">
+                                </div>
+                            </div>
+                            <div class="dnevnikDugme">
+                                <button id="addMeal" class="add-btn btn blue darken-3">   Dodaj Obrok</button>
+                                <button id="updateMeal" class="update-btn btn blue darken-3">   Izmeni Obrok</button>
+                                <button id="backBtn" class="back-btn btn black pull-right">   Nazad</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="center-align">Ukupne kalorije: <span class="total-calories" id="totalCalories"> </span></h3>
+            <ul id="item-list" class="collection">
+
+            </ul>
+
+
+        </div>
+
+        <script src="/js/dnevnik.js "></script>
+
+        <%- include('partials/fotter.ejs') %>
+</body>
+
+</html>
